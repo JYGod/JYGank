@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity(), LifecycleRegistryOwner {
         supportFragmentManager.beginTransaction()
                 .add(R.id.main_container, AndroidFragment(), AndroidFragment.TAG)
                 .commit()
-
         initBottomBar()
     }
 
@@ -46,7 +45,7 @@ class MainActivity : AppCompatActivity(), LifecycleRegistryOwner {
                 .build()
         navController.addTabItemSelectedListener(object : OnTabItemSelectedListener {
             override fun onSelected(index: Int, old: Int) {
-                
+
             }
 
             override fun onRepeat(index: Int) {
