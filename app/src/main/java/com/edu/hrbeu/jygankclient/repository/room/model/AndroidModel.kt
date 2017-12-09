@@ -1,4 +1,4 @@
-package com.edu.hrbeu.jygankclient.db.model
+package com.edu.hrbeu.jygankclient.repository.room.model
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey

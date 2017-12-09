@@ -1,10 +1,11 @@
-package com.edu.hrbeu.jygankclient
+package com.edu.hrbeu.jygankclient.view.activity
 
 import android.arch.lifecycle.LifecycleRegistry
 import android.arch.lifecycle.LifecycleRegistryOwner
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.edu.hrbeu.jygankclient.fragment.AndroidFragment
+import com.edu.hrbeu.jygankclient.R
+import com.edu.hrbeu.jygankclient.view.fragment.AndroidFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import me.majiajie.pagerbottomtabstrip.item.BaseTabItem
 import me.majiajie.pagerbottomtabstrip.item.NormalItemView

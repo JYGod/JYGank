@@ -1,10 +1,10 @@
-package com.edu.hrbeu.jygankclient.db.dao
+package com.edu.hrbeu.jygankclient.repository.room.dao
 
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy
 import android.arch.persistence.room.Query
-import com.edu.hrbeu.jygankclient.db.model.AndroidModel
+import com.edu.hrbeu.jygankclient.repository.room.model.AndroidModel
 
 /**
  * JYGod丶 创建于 17/12/8 下午10:18

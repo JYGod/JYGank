@@ -4,8 +4,11 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+
+
 android {
     compileSdkVersion 26
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.edu.hrbeu.jygankclient"
         minSdkVersion 19
@@ -23,12 +26,14 @@ android {
         }
 
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     packagingOptions {
         exclude 'META-INF/rxjava.properties'
     }
@@ -39,7 +44,7 @@ android {
 }
 
 ext {
-    ac_version = "1.0.0-rc1"
+    ac_version = "1.0.0"
     rxjava_version = "2.1.0"
     rxandroid_version = "2.0.1"
     rxkotlin_version = "2.0.3"
@@ -73,7 +78,7 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxkotlin:$rxkotlin_version"
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
     //    //    databinding
-    kapt 'com.android.databinding:compiler:3.0.0'
+    kapt 'com.android.databinding:compiler:3.0.1'
     // Gson
     implementation 'com.google.code.gson:gson:2.8.0'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
@@ -94,4 +99,9 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:26.1.0'
 
     implementation 'com.orhanobut:logger:2.1.1'
+
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34' // recyclerView
+    implementation 'com.github.dkzwm.SmoothRefreshLayout:core:1.5.1.1'
+
+    implementation 'com.android.support:design:26.1.0'
 }
