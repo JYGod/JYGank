@@ -104,4 +104,6 @@ dependencies {
     implementation 'com.github.dkzwm.SmoothRefreshLayout:core:1.5.1.1'
 
     implementation 'com.android.support:design:26.1.0'
+    implementation 'com.tencent.sonic:sdk:2.0.0'
+    implementation 'com.bm.photoview:library:1.4.1'
 }

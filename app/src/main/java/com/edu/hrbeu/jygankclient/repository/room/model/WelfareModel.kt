@@ -4,11 +4,10 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
 /**
- * JYGod丶 创建于 17/12/8 下午10:14
+ * JYGod丶 创建于 17/12/10 下午3:08
  */
-
-@Entity(tableName = "android")
-class AndroidModel {
+@Entity(tableName = "welfare")
+class WelfareModel {
 
     @PrimaryKey
     var _id = ""

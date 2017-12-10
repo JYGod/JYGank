@@ -18,6 +18,7 @@ class RoomModule {
     fun provideAppDatabase(context: Context): AppDatabase {
         return Room.databaseBuilder(context,
                 AppDatabase::class.java, AppDatabase.TAG)
+                .allowMainThreadQueries()
                 .build()
     }
 }

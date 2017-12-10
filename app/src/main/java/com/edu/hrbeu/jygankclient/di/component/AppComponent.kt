@@ -5,6 +5,7 @@ import com.edu.hrbeu.jygankclient.di.module.AppModule
 import com.edu.hrbeu.jygankclient.di.module.RemoteModule
 import com.edu.hrbeu.jygankclient.di.module.RoomModule
 import com.edu.hrbeu.jygankclient.view.viewmodel.AndroidViewModel
+import com.edu.hrbeu.jygankclient.view.viewmodel.WelfareViewModel
 import dagger.Component
 import javax.inject.Singleton
 
@@ -16,6 +17,7 @@ import javax.inject.Singleton
 @Singleton
 interface AppComponent {
 
-    fun inject(viewModel: AndroidViewModel)
+    fun injectAndroid(viewModel: AndroidViewModel)
 
+    fun injectWelfare(viewModel: WelfareViewModel)
 }

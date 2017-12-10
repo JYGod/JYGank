@@ -17,44 +17,14 @@ class AndroidViewModel : ViewModel() {
 
     @Inject lateinit var androidRepo: AndroidRepo
 
-    private var list = MutableLiveData<List<AndroidModel>>()
-
-
     init {
         initializeDagger()
     }
 
-    private fun initializeDagger() = App.appComponent.inject(this)
+    private fun initializeDagger() = App.appComponent.injectAndroid(this)
 
-//    fun getList(): LiveData<List<AndroidModel>>? {
-//        if (list == null) {
-//            list = MutableLiveData()
-//            loadList()
-//        }
-//        return list
-//    }
-
-    fun getList(page: String): MutableLiveData<List<AndroidModel>>? {
-        androidRepo.loadList(page)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ entity ->
-                    list.value = entity.results
-                }, { t: Throwable -> t.printStackTrace() })
-        return list
+    fun getList(page: String): LiveData<List<AndroidModel>>? {
+        return androidRepo.loadList(page)
     }
-
-
-//    private fun loadList() {
-//        repo.getAndroidList().enqueue(object : Callback<List<AndroidModel>>{
-//            override fun onFailure(call: Call<List<AndroidModel>>?, t: Throwable?) {
-//
-//            }
-//
-//            override fun onResponse(call: Call<List<AndroidModel>>?, response: Response<List<AndroidModel>>?) {
-//                Logger.d(response?.body())
-//            }
-//        })
-//    }
 
 }

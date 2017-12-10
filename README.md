@@ -4,7 +4,7 @@
 
 - **语言：Kotlin**
 - **Google官方推荐框架： Architecture Component（ Room + Lifecycle + ViewModel + LiveData )**
-- **本地Room : SQLite3**
+- **本地数据持久化 : Room**
 - **依赖注入：Dagger2**
 - **网络请求：Retrofit2 + OkHttp3**
 - **rxKotlin + rxAndroid**

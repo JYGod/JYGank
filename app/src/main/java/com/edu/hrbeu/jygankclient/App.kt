@@ -27,7 +27,7 @@ class App : Application() {
         initializeDagger()
     }
 
-    fun initializeDagger() {
+    private fun initializeDagger() {
         appComponent = DaggerAppComponent.builder()
                 .appModule(AppModule(this))
                 .roomModule(RoomModule())

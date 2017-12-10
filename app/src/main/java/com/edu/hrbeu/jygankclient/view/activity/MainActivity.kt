@@ -1,11 +1,13 @@
 package com.edu.hrbeu.jygankclient.view.activity
 
+import android.arch.lifecycle.LifecycleFragment
 import android.arch.lifecycle.LifecycleRegistry
 import android.arch.lifecycle.LifecycleRegistryOwner
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.edu.hrbeu.jygankclient.R
 import com.edu.hrbeu.jygankclient.view.fragment.AndroidFragment
+import com.edu.hrbeu.jygankclient.view.fragment.WelfareFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import me.majiajie.pagerbottomtabstrip.item.BaseTabItem
 import me.majiajie.pagerbottomtabstrip.item.NormalItemView
@@ -17,6 +19,8 @@ import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectedListener
 class MainActivity : AppCompatActivity(), LifecycleRegistryOwner {
 
     private var lifeRegister = LifecycleRegistry(this)
+    private val fragmentList = listOf(
+            AndroidFragment(), WelfareFragment())
     private val TAG_ANDROID = "Android"
     private val TAG_IOS = "IOS"
     private val TAG_WELFARE = "福利"
@@ -31,7 +35,7 @@ class MainActivity : AppCompatActivity(), LifecycleRegistryOwner {
         setContentView(R.layout.activity_main)
 
         supportFragmentManager.beginTransaction()
-                .add(R.id.main_container, AndroidFragment(), AndroidFragment.TAG)
+                .add(R.id.main_container, fragmentList[0], AndroidFragment.TAG)
                 .commit()
         initBottomBar()
     }
@@ -46,7 +50,18 @@ class MainActivity : AppCompatActivity(), LifecycleRegistryOwner {
                 .build()
         navController.addTabItemSelectedListener(object : OnTabItemSelectedListener {
             override fun onSelected(index: Int, old: Int) {
-
+                if (index == 0) {
+                    supportFragmentManager.beginTransaction()
+                            .replace(R.id.main_container, fragmentList[0], AndroidFragment.TAG)
+                            .commit()
+                } else if (index == 2) {
+                    supportFragmentManager.beginTransaction()
+                            .replace(R.id.main_container, fragmentList[1], AndroidFragment.TAG)
+                            .commit()
+                }
+//                supportFragmentManager.beginTransaction()
+//                        .add(R.id.main_container, fragmentList[index], AndroidFragment.TAG)
+//                        .commit()
             }
 
             override fun onRepeat(index: Int) {

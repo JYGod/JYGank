@@ -1,5 +1,6 @@
 package com.edu.hrbeu.jygankclient.repository.room.dao
 
+import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy
@@ -13,8 +14,8 @@ import com.edu.hrbeu.jygankclient.repository.room.model.AndroidModel
 @Dao
 interface AndroidDao {
 
-    @Query("select * from android limit 5")
-    fun selectList(): List<AndroidModel>
+    @Query("select * from android order by publishedAt desc")
+    fun selectList(): LiveData<List<AndroidModel>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertList(list: List<AndroidModel>)
