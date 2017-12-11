@@ -38,15 +38,13 @@ class AndroidFragment : LifecycleFragment() {
         initRecycler()
         viewModel = ViewModelProviders.of(this).get(AndroidViewModel::class.java)
         viewModel.getList(PAGE.toString())?.observeForever { list ->
-            Logger.d("list----->发生变化, listSize:${list?.size}")
             list?.let {
                 mAdapter.addData(it)
                 mAdapter.loadMoreComplete()
             }
         }
         mAdapter.setOnLoadMoreListener {
-            PAGE += 1
-            viewModel.getList(PAGE.toString())
+            viewModel.getList((PAGE++).toString())
         }
     }
 
