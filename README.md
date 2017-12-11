@@ -34,7 +34,8 @@ Demo 暂时写得比较简单，以后会不定期增加功能或美化UI... 项
 
 
 
-<img src="/screenshots/UI.png" width="250" alt="screenshot" title="screenshot"/><img src="/screenshots/meizhi.png" width="250"alt="screenshot" title="screenshot" />
+<img src="/screenshots/UI.png" width="250" alt="screenshot" title="screenshot"/>
+<img src="/screenshots/meizhi.png" width="250"alt="screenshot" title="screenshot" />
 
 
 
