@@ -26,6 +26,7 @@ class AndroidFragment : LifecycleFragment() {
 
     companion object {
         val TAG = "AndroidFragment"
+        val TITLE = "title"
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -34,17 +35,18 @@ class AndroidFragment : LifecycleFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        toolbar.setTitleTextColor(context.resources.getColor(R.color.pureWhite))
         initRecycler()
+        val bundel = arguments
+        val type = bundel.getString("title")
         viewModel = ViewModelProviders.of(this).get(AndroidViewModel::class.java)
-        viewModel.getList(PAGE.toString())?.observeForever { list ->
+        viewModel.getList(PAGE.toString(), type)?.observeForever { list ->
             list?.let {
                 mAdapter.addData(it)
                 mAdapter.loadMoreComplete()
             }
         }
         mAdapter.setOnLoadMoreListener {
-            viewModel.getList((PAGE++).toString())
+            viewModel.getList((PAGE++).toString(), type)
         }
     }
 

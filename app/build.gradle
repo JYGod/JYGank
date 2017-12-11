@@ -106,4 +106,5 @@ dependencies {
     implementation 'com.android.support:design:26.1.0'
     implementation 'com.tencent.sonic:sdk:2.0.0'
     implementation 'com.bm.photoview:library:1.4.1'
+    implementation 'cn.hugeterry.coordinatortablayout:coordinatortablayout:1.2.0'
 }

@@ -11,8 +11,8 @@ import retrofit2.http.Path
  */
 interface RemoteService {
 
-    @GET("data/Android/10/{page}")
-    fun getAndroidList(@Path("page") page:String):Observable<AndroidEntity>
+    @GET("data/{type}/10/{page}")
+    fun getAndroidList(@Path("page") page:String, @Path("type") type:String):Observable<AndroidEntity>
 
     @GET("data/福利/10/{page}")
     fun getWelfareList(@Path("page") page:String):Observable<WelfareEntity>

@@ -14,8 +14,8 @@ import com.edu.hrbeu.jygankclient.repository.room.model.AndroidModel
 @Dao
 interface AndroidDao {
 
-    @Query("select * from android order by publishedAt desc")
-    fun selectList(): LiveData<List<AndroidModel>>
+    @Query("select * from android where type = :arg0 order by publishedAt desc")
+    fun selectList(type: String): LiveData<List<AndroidModel>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertList(list: List<AndroidModel>)

@@ -18,8 +18,8 @@ class AndroidRepo @Inject constructor(
         private val roomDataSource: AppDatabase,
         private val remoteDataSource: RemoteDataSource) {
 
-    fun loadList(page: String): LiveData<List<AndroidModel>>? {
-        remoteDataSource.loadAndroidList(page)
+    fun loadList(page: String, type: String): LiveData<List<AndroidModel>>? {
+        remoteDataSource.loadAndroidList(page, type)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ entity ->
@@ -27,7 +27,7 @@ class AndroidRepo @Inject constructor(
                         roomDataSource.androidDao().insertList(resList)
                     }
                 }, { t: Throwable -> t.printStackTrace() })
-        return roomDataSource.androidDao().selectList()
+        return roomDataSource.androidDao().selectList(type)
     }
 
 }

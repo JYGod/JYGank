@@ -23,8 +23,8 @@ class AndroidViewModel : ViewModel() {
 
     private fun initializeDagger() = App.appComponent.injectAndroid(this)
 
-    fun getList(page: String): LiveData<List<AndroidModel>>? {
-        return androidRepo.loadList(page)
+    fun getList(page: String, type: String): LiveData<List<AndroidModel>>? {
+        return androidRepo.loadList(page, type)
     }
 
 }
